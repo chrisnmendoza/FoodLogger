@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="709.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.CalorieCheckerController">
+	<bottom>
+		<HBox alignment="CENTER" prefHeight="69.0" prefWidth="872.0" BorderPane.alignment="CENTER">
+			<children>
+				<HBox alignment="CENTER" prefHeight="189.0" prefWidth="100.0">
+					<children>
+						<Button mnemonicParsing="false" onAction="#btnCalcFood" text="Calculate" />
+					</children>
+				</HBox>
+								<HBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0">
+					<children>
+						<Button mnemonicParsing="false" onAction="#btnClearFields" prefWidth="100.0" text="Clear" />
+					</children>
+				</HBox>
+			</children>
+		</HBox>
+	</bottom>
+	<center>
+		<VBox alignment="CENTER" prefHeight="640.0" prefWidth="1330.0" BorderPane.alignment="CENTER">
+			<children>
+				<HBox alignment="CENTER" prefHeight="194.0" prefWidth="883.0">
+					<children>
+						<GridPane prefHeight="194.0" prefWidth="401.0">
+							<columnConstraints>
+								<ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="143.0" />
+								<ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="137.0" />
+							</columnConstraints>
+							<rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+							</rowConstraints>
+							<children>
+								<Label fx:id="lblFoodName" text="Name Of Food" GridPane.rowIndex="1" />
+								<Label fx:id="lblCalories" text="Calories" GridPane.rowIndex="2" />
+								<Label fx:id="lblProtein" text="Protein (g)" GridPane.rowIndex="3" />
+								<Label fx:id="lblFat" text="Fat (g)" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="command" prefHeight="25.0" prefWidth="208.0" GridPane.columnIndex="1" />
+								<TextField fx:id="foodName" onKeyPressed="#btnClearResultsKeyPress" prefHeight="25.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+								<TextField fx:id="calories" onKeyPressed="#btnClearResultsKeyPress" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+								<TextField fx:id="protein" onKeyPressed="#btnClearResultsKeyPress" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="carbohydrates" onKeyPressed="#btnClearResultsKeyPress" prefHeight="25.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+								<TextField fx:id="fat" onKeyPressed="#btnClearResultsKeyPress" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Action" />
+                        <!--<Label fx:id="lblEscrow" text="Escrow" GridPane.rowIndex="5" /> -->
+                        <Label fx:id="lblCarbohydrates" text="Carbohydrates (g)" GridPane.rowIndex="4" />
+							</children>
+						</GridPane>
+						<HBox prefHeight="214.0" prefWidth="88.0" />
+                  <GridPane prefHeight="194.0" prefWidth="401.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="143.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="137.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+					</children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+				</HBox>
+				<HBox alignment="CENTER" prefHeight="375.0" prefWidth="883.0">
+               <children>
+                  <StackPane prefHeight="375.0" prefWidth="983.0">
+                     <children>
+                        <ListView fx:id="allFoods" prefHeight="200.0" prefWidth="200.0" />
+                        <GridPane fx:id="nutritionalFacts" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="600.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Calories:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Protein (g):" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Carbohydrates (g):" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Fat (g):" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Food Name:" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="foodNameOutput" text="Label" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="caloriesOutput" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="proteinOutput" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="carbohydratesOutput" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="fatOutput" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <Label fx:id="insertSuccess" prefHeight="101.0" prefWidth="220.0" text="Insert Successful" textAlignment="CENTER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children></HBox>
+			</children>
+		</VBox>
+	</center>
+</BorderPane>
